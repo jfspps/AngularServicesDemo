@@ -4,8 +4,8 @@ import { AccountsService } from './accounts.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
-  providers: [AccountsService]
+  styleUrls: ['./app.component.css']
+  // see app.module.ts for AccountsService provider (appModule takes precedence over appComponent)
 })
 export class AppComponent implements OnInit{
   // define the local array

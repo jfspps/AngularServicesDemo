@@ -21,5 +21,8 @@ export class NewAccountComponent {
     // console.log('A server status changed, new status: ' + accountStatus);
     // using services to minimise code duplication (see also account component)
     this.loggingService.logStatusChanged(accountStatus);
+
+    // use AccountService (see appModule) to add an account
+    this.accountsService.addAccount(accountName, accountStatus);
   }
 }
