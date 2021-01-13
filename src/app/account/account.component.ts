@@ -6,7 +6,9 @@ import { LoggingService } from '../login.service';
   selector: 'app-account',
   templateUrl: './account.component.html',
   styleUrls: ['./account.component.css'],
-  providers: [LoggingService, AccountsService]
+
+  //needed to inject LoggingService; stating AccountsService would override appComponent's AccountsService
+  providers: [LoggingService]   
 })
 export class AccountComponent {
   @Input() account: {name: string, status: string};
