@@ -4,6 +4,8 @@ This project explores dependency injection in Angular and the communication betw
 
 When a service is injected into appComponent, the same service is available to all child components of appComponent. Similarly, a service injected into a particular component will also be available to its child components, but not any parent component (e.g. appComponent) above it. In other words, __service injection is hierarchical__. As a result, care must be taken when injecting services since it may lead to unexpected behaviour.
 
+Perhaps the major advantage with using services for large projects is the omission of data binding (event or property) with @Input and @Output. Instead, services provide a more centralised repository which is available to components which are injected with said service.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.4.
 
 ## Development server

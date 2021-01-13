@@ -15,6 +15,12 @@ export class NewAccountComponent {
   // note that we no longer need to bind data with emitters
   constructor(private loggingService: LoggingService,
       private accountsService: AccountsService) {
+
+        // this listens for AccountsService statusUpdated() event (Observables are explained later in the course)
+        // communication occurs between accountComponent and newAccountComponent via AccountsService
+        this.accountsService.statusUpdated.subscribe(
+          (status) => alert('New status: ' + status)
+        )
   }
 
   onCreateAccount(accountName: string, accountStatus: string) {

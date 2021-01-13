@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { AccountsService } from '../accounts.service';
 import { LoggingService } from '../login.service';
 
@@ -8,14 +8,14 @@ import { LoggingService } from '../login.service';
   styleUrls: ['./account.component.css'],
 
   //needed to inject LoggingService; stating AccountsService would override appComponent's AccountsService
-  providers: [LoggingService]   
+  providers: [LoggingService]
 })
 export class AccountComponent {
-  @Input() account: {name: string, status: string};
+  @Input() account: { name: string, status: string };
   @Input() id: number;
 
   constructor(private loggingService: LoggingService,
-      private accountsService: AccountsService) {
+    private accountsService: AccountsService) {
   }
 
   onSetTo(status: string) {
@@ -24,5 +24,9 @@ export class AccountComponent {
 
     // using services to minimise code duplication (see also new-account component)
     this.loggingService.logStatusChanged(status);
+
+    // emit an event set up in an injected service, in this case AccountsService (this is explained later in the course)
+    // communication occurs between accountComponent and other components listening for this eventEmitter via AccountsService
+    this.accountsService.statusUpdated.emit(status);
   }
 }
