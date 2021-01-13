@@ -1,5 +1,7 @@
 # ServicesDemo
 
+This project explores dependency injection in Angular and the communication between components using services. Services also circumvent duplicated code, making methods available to all components.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.4.
 
 ## Development server
